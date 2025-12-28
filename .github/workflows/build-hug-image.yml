@@ -41,7 +41,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/hgfenw20251228:latest
+            ghcr.io/${{ github.actor == '' && github.repository_owner || github.actor }}/${{ github.event.repository.name }}:latest
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.description=http server
